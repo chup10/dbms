@@ -1,0 +1,13 @@
+SELECT Stud_name, book_name
+FROM Student
+JOIN Membership USING (Stud_no)
+JOIN Iss_rec USING (Mem_no)
+JOIN Book USING (book_no)
+WHERE iss_date = DATE('now');
+
+
+SELECT Stud_name, COUNT(iss_no) AS books_borrowed
+FROM Student
+JOIN Membership USING (Stud_no)
+JOIN Iss_rec USING (Mem_no)
+GROUP BY Stud_name;
